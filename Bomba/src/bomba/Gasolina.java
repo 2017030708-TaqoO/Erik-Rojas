@@ -17,9 +17,9 @@ public class Gasolina {
     
     public Gasolina()
     {
-        this.id=01;
+        this.id=1;
         this.marca="default";
-        this.tipo=01;
+        this.tipo=1;
         this.precioBase=0.0F;
     }
     
@@ -98,15 +98,19 @@ public class Gasolina {
     public float calcularPrecio()
     {
         float precio = 0.0F;
-        switch(tipo)
-        {
+        switch (tipo) {
             case 1:
-                precio=precioBase+(precioBase*10/100);
+                precio=precioBase+(precioBase*0.10F);
+                break;
             case 2:
-                precio=precioBase+(precioBase*20/100);
+                precio=precioBase+(precioBase*0.20F);
+                break;
             case 3:
-                precio=precioBase+(precioBase*25/100);
-        };
+                precio=precioBase+(precioBase*0.25F);
+                break;
+            default:
+                break;
+        }
         return precio;     
     }
     

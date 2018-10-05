@@ -5,6 +5,8 @@
  */
 package bomba;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Software 05
@@ -95,5 +97,31 @@ public class BombaDeGasolina {
         this.contadorLV = contadorLV;
     }
     
+    public int verificarInventario ()
+    {
+        int inventario =capacidad-contadorLV;
+        return inventario;
+    }
     
+    public float venta(int litros)
+    {
+        float precio=0.0F;
+        if(litros<verificarInventario())
+        {
+            contadorLV=contadorLV+litros;
+            precio=litros*tGasolina.calcularPrecio();
+            JOptionPane.showMessageDialog(null, "Precio: " + precio);
+        }
+        else
+        {
+            JOptionPane.showMessageDialog(null, "No hay suficiente gasolina" );
+        }
+        return precio;
+    }
+    
+    public float ventaTotal()
+    {
+        float total=contadorLV*tGasolina.calcularPrecio();
+        return total;
+    }
 }
