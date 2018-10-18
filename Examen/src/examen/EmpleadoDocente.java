@@ -70,8 +70,12 @@ public class  EmpleadoDocente extends Empleado {
     }
     @Override
     public float calcularPago() {
-        float pago=pagoH*numMaterias;
-        pago=pago+(pago*0.18F);
+        float pago=0;
+        if(puesto.getTipoPuesto()==1)
+        {
+            pago=pagoH*numMaterias;
+            pago=pago+(pago*0.18F);
+        }
         return pago;
     }
 
@@ -80,7 +84,7 @@ public class  EmpleadoDocente extends Empleado {
        float impuesto=0;
        if(puesto.getTipoPuesto()>2)
        {
-           impuesto=calcularPago()*0.18F;
+           impuesto=calcularPago()*0.18F;//en caso de haber mas puestos de haria esto
        }
        else
        {
